@@ -99,3 +99,82 @@ export default function LoginPage() {
                 <CardHeader className="text-center">
                     <Icons.loader className="w-12 h-12 mx-auto animate-spin text-primary" />
                     <CardTitle className="text-2xl font-headline mt-4">Redirigiendo a la app...</CardTitle>
+                    <CardDescription>Por favor, espera un momento.</CardDescription>
+                </CardHeader>
+            </Card>
+        </div>
+      )}
+
+      <Tabs defaultValue="login" className="w-full max-w-sm">
+        <Card>
+            <CardHeader className="text-center">
+                <Icons.logo className="w-12 h-12 mx-auto text-primary" />
+                <CardTitle className="text-2xl font-headline mt-4">Bienvenido a MenteViva</CardTitle>
+                <CardDescription>Inicia sesión o regístrate para continuar.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                 <Button variant="outline" className="w-full" onClick={handleGoogleSignIn} disabled={loading}>
+                    {loading ? <Icons.loader className="mr-2 h-5 w-5 animate-spin" /> : <Icons.bot className="mr-2 h-5 w-5" />}
+                    Ingresar con Google
+                </Button>
+                <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t" />
+                    </div>
+                    <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-card px-2 text-muted-foreground">
+                        O continuar con
+                    </span>
+                    </div>
+                </div>
+                 <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="login" disabled={loading}>Ingresar</TabsTrigger>
+                    <TabsTrigger value="signup" disabled={loading}>Registrarse</TabsTrigger>
+                </TabsList>
+                <TabsContent value="login">
+                   <form onSubmit={handleEmailSignIn}>
+                        <div className="space-y-2">
+                            <Label htmlFor="email-login">Email</Label>
+                            <Input id="email-login" type="email" placeholder="tu@ejemplo.com" value={email} onChange={(e) => setEmail(e.target.value)} required disabled={loading}/>
+                        </div>
+                        <div className="space-y-2 mt-4">
+                            <Label htmlFor="password-login">Contraseña</Label>
+                            <Input id="password-login" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required disabled={loading}/>
+                        </div>
+                        <Button className="w-full mt-6" type="submit" disabled={loading}>
+                             {loading && <Icons.loader className="mr-2 h-4 w-4 animate-spin" />}
+                             Ingresar
+                        </Button>
+                   </form>
+                </TabsContent>
+                <TabsContent value="signup">
+                   <form onSubmit={handleEmailSignUp}>
+                       <div className="space-y-2">
+                            <Label htmlFor="email-signup">Email</Label>
+                            <Input id="email-signup" type="email" placeholder="tu@ejemplo.com" value={email} onChange={(e) => setEmail(e.target.value)} required disabled={loading}/>
+                        </div>
+                        <div className="space-y-2 mt-4">
+                            <Label htmlFor="password-signup">Contraseña</Label>
+                            <Input id="password-signup" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required disabled={loading}/>
+                        </div>
+                         <Button className="w-full mt-6" type="submit" disabled={loading}>
+                            {loading && <Icons.loader className="mr-2 h-4 w-4 animate-spin" />}
+                            Crear cuenta
+                        </Button>
+                   </form>
+                </TabsContent>
+            </CardContent>
+             <CardFooter className="flex flex-col gap-4">
+                 <Link href="/privacy-policy" className="text-xs text-muted-foreground hover:underline">
+                    Política de Privacidad
+                 </Link>
+                <div className="flex items-center justify-center gap-2 pt-2">
+                    <Lock className="w-3 h-3 text-muted-foreground" />
+                    <p className="text-xs text-muted-foreground">Tu seguridad y privacidad son nuestra prioridad.</p>
+                </div>
+            </CardFooter>
+        </Card>
+      </Tabs>
+    </div>
+  );
+}
