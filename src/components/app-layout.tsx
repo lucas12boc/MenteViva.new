@@ -1,3 +1,5 @@
+    sueños en el menú lateral:
+
 "use client"
 
 import Link from "next/link"
@@ -83,6 +85,7 @@ function AppLayoutContent({ children }: { children: React.ReactNode }) {
   const mainMenuItems = [
     { href: "/dashboard", label: dictionary.navigation.home, icon: Icons.smile },
     { href: "/mood-tracker", label: dictionary.navigation.moodTracker, icon: Icons.bot },
+    { href: "/dream-journal", label: "Diario de Sueños", icon: Icons.moon },
     { href: "/garden", label: dictionary.navigation.emotionalGarden, icon: Icons.sprout },
     { href: "/sanctuary", label: dictionary.navigation.resilienceSanctuary, icon: Icons.gem },
     { href: "/training", label: dictionary.navigation.training, icon: Icons.brain },
