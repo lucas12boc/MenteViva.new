@@ -27,6 +27,14 @@ export default function DashboardPage() {
       "data-ai-hint": "journaling emotional"
     },
     {
+      icon: <Icons.moon className="w-8 h-8 text-indigo-400" />,
+      title: "Diario de Sueños",
+      description: "Registra e interpreta tus sueños para descubrir mensajes de tu subconsciente.",
+      href: "/dream-journal",
+      cta: "Explorar mis Sueños",
+      "data-ai-hint": "moon stars"
+    },
+    {
       icon: <Icons.sprout className="w-8 h-8 text-green-500" />,
       title: dictionary.dashboard.emotionalGarden.title,
       description: dictionary.dashboard.emotionalGarden.description,
